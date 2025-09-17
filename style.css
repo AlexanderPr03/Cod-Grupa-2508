@@ -1,0 +1,153 @@
+
+/* Box Model - toate elementele din pagina sunt o cutie, fiecare element are 4 straturi diferite. Aceasta cutie are 4 straturi diferite cu care putem interactiona pentru a schimba cum elementul nostru arata in pagina si cum se misca in pagina fata de vecinii acestuia*/
+
+.cutie {
+    width: 300px;
+    height: 200px;
+    background-color: rgb(212, 255, 255);
+
+
+
+    /* 1)  margin - stratul extern al box modelului, controleaza distanta de la elementul curent pana la elementele vecine */
+    /* margin-left: 50px;
+    margin-top: 100px;
+    margin-right: 25px;
+    margin-bottom: 150px; */
+
+    /* margin: 100px 25px       150px 50px; */
+    /*      sus   dreapta   jos  stanga */
+
+
+    /* 2) border - rama elementului. */
+    border-width: 3px;
+    border-style:solid;
+    border-color: black;
+   
+
+    /* border: 10px solid blue; */
+
+    /* border-radius: 12px; */
+
+
+    /* 3) Padding - distanta de la peretii elementului pana la continutul intern al acestuia */
+    padding: 20px;
+
+
+    box-sizing: border-box;
+
+    /* 4) Content - continutul propriu zis */
+
+    /* Proprietatea position - stabileste pozitia elementului */
+
+    /* 1) static - pozitia default a elementului - nici o schimbare */
+    /* position: static; */
+
+    /* 2) relative - initial, asemanator cu pozitia statica, dar ne permite sa folosim cele 4 proprietati de mai jos: top, right, bottom, left*/
+
+    /* position: relative; */
+    /* top: 100px;
+    right: 100px;  */
+    /* bottom: 200px; */
+    /* left: 100px; */
+
+    /* 3) absolute*/
+    position: absolute;
+
+    /* top: 0;
+    left: 0; */
+
+}
+
+p { 
+    border: 1px solid ;
+}
+.cutie2 {
+    width: 300px;
+    height: 200px;
+    background-color: rgb(212, 255, 255);
+
+
+
+    /* 1)  margin - stratul extern al box modelului, controleaza distanta de la elementul curent pana la elementele vecine */
+    /* margin-left: 50px;
+    margin-top: 100px;
+    margin-right: 25px;
+    margin-bottom: 150px; */
+
+    margin: 100px 25px       150px 50px;
+    /*      sus   dreapta   jos  stanga */
+
+
+    /* 2) border - rama elementului. */
+    border-width: 3px;
+    border-style:solid;
+    border-color: black;
+   
+
+    /* border: 10px solid blue; */
+
+    /* border-radius: 12px; */
+
+
+    /* 3) Padding - distanta de la peretii elementului pana la continutul intern al acestuia */
+    /* padding: 20px; */
+
+}
+
+
+.circle {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+
+
+    border-radius: 50%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+    /* z-index - proprietate numerica relativa care determina ordinea afisarii elementelor
+    
+    z-index: 100
+
+    z-index: 99
+    */
+
+
+    
+}
+
+/* Unitati de masura absolute: 
+    1) pixel - px
+*/
+
+/* Unitati de masura relative */
+
+/* 1) % - procentul */
+
+/* 2) view-width  - vw 
+
+1vw = 1% din lățimea curentă a ecranului
+*/
+
+
+/* 3) view-height - vh
+1vh - 1% din inaltimea curenta a ecranului
+*/
+
+.formular-contact {
+    width: 90vw;
+    height: 20vh;
+
+    background-color: black;
+}
+
+h1 {
+    font-size: 4vw;
+
+    position: relative;
+
+    z-index: 3;
+}
