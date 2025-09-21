@@ -33,6 +33,8 @@
     padding: 20px;
 
 
+
+    /*  */
     box-sizing: border-box;
 
     /* 4) Content - continutul propriu zis */
@@ -51,7 +53,7 @@
     /* left: 100px; */
 
     /* 3) absolute*/
-    position: absolute;
+    /* position: absolute; */
 
     /* top: 0;
     left: 0; */
