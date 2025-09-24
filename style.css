@@ -1,155 +1,194 @@
-
-/* Box Model - toate elementele din pagina sunt o cutie, fiecare element are 4 straturi diferite. Aceasta cutie are 4 straturi diferite cu care putem interactiona pentru a schimba cum elementul nostru arata in pagina si cum se misca in pagina fata de vecinii acestuia*/
-
-.cutie {
-    width: 300px;
-    height: 200px;
-    background-color: rgb(212, 255, 255);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-
-    /* 1)  margin - stratul extern al box modelului, controleaza distanta de la elementul curent pana la elementele vecine */
-    /* margin-left: 50px;
-    margin-top: 100px;
-    margin-right: 25px;
-    margin-bottom: 150px; */
-
-    /* margin: 100px 25px       150px 50px; */
-    /*      sus   dreapta   jos  stanga */
-
-
-    /* 2) border - rama elementului. */
-    border-width: 3px;
-    border-style:solid;
-    border-color: black;
-   
-
-    /* border: 10px solid blue; */
-
-    /* border-radius: 12px; */
-
-
-    /* 3) Padding - distanta de la peretii elementului pana la continutul intern al acestuia */
-    padding: 20px;
-
-
-
-    /*  */
-    box-sizing: border-box;
-
-    /* 4) Content - continutul propriu zis */
-
-    /* Proprietatea position - stabileste pozitia elementului */
-
-    /* 1) static - pozitia default a elementului - nici o schimbare */
-    /* position: static; */
-
-    /* 2) relative - initial, asemanator cu pozitia statica, dar ne permite sa folosim cele 4 proprietati de mai jos: top, right, bottom, left*/
-
-    /* position: relative; */
-    /* top: 100px;
-    right: 100px;  */
-    /* bottom: 200px; */
-    /* left: 100px; */
-
-    /* 3) absolute*/
-    /* position: absolute; */
-
-    /* top: 0;
-    left: 0; */
-
+body {
+    margin: 0;
 }
 
-p { 
-    border: 1px solid ;
-}
-.cutie2 {
-    width: 300px;
-    height: 200px;
-    background-color: rgb(212, 255, 255);
-
-
-
-    /* 1)  margin - stratul extern al box modelului, controleaza distanta de la elementul curent pana la elementele vecine */
-    /* margin-left: 50px;
-    margin-top: 100px;
-    margin-right: 25px;
-    margin-bottom: 150px; */
-
-    margin: 100px 25px       150px 50px;
-    /*      sus   dreapta   jos  stanga */
-
-
-    /* 2) border - rama elementului. */
-    border-width: 3px;
-    border-style:solid;
-    border-color: black;
-   
-
-    /* border: 10px solid blue; */
-
-    /* border-radius: 12px; */
-
-
-    /* 3) Padding - distanta de la peretii elementului pana la continutul intern al acestuia */
-    /* padding: 20px; */
-
-}
-
-
-.circle {
-    width: 500px;
-    height: 500px;
-    background-color: blue;
-
-
-    border-radius: 50%;
-
-    position: absolute;
+header {
+    position: fixed;
     top: 0;
     left: 0;
 
-    z-index: 2;
-    /* z-index - proprietate numerica relativa care determina ordinea afisarii elementelor
-    
-    z-index: 100
+    width: 100vw;
+    height: 75px;
+    background-color: rgb(0, 4, 59);
 
-    z-index: 99
-    */
-
-
-    
+    z-index: 5;
 }
 
-/* Unitati de masura absolute: 
-    1) pixel - px
-*/
+nav {
+    height: 100%;
 
-/* Unitati de masura relative */
-
-/* 1) % - procentul */
-
-/* 2) view-width  - vw 
-
-1vw = 1% din lățimea curentă a ecranului
-*/
-
-
-/* 3) view-height - vh
-1vh - 1% din inaltimea curenta a ecranului
-*/
-
-.formular-contact {
-    width: 90vw;
-    height: 20vh;
-
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    font-size: 4vw;
+.menu_list {
+    /* list-style - scoateti sau adaugati caractersticile listei */
+    list-style: none;
 
+    display: flex;
+    gap: 25px;
+}
+.menu_link {
+    color: white;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+.phantom_div {
+    height: 80px;
+}
+
+main {
+    /* padding-left: 100px;
+    padding-right: 100px; */
+}
+
+
+
+
+/* Elementele cu pozitia absoluta sunt izolate in cel mai apropiat element parinte care are pozitia setata */
+
+.buy_button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.pret_produs {
+    margin: 0;
+
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+/* 
+#card_principal {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+
+    background-color: red;
+} */
+
+
+
+.back_to_top {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(0, 4, 59);
+
+    border-radius: 50%;
+
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+
+    z-index: 10;
+}
+
+
+/* Model de layout Grid - un alt model de layout */
+
+/* FLEXBOX - Flexible Box */
+
+.container {
+    /* Proprietatea display - controleaza tipul de layout al elementului */
+    /* display:block - default */
+    /* height: 130vh; */
+
+    /* display:flex - comanda care activeaza flexboxul in container */
+    display: flex;
+
+    flex-flow: reverse;
+    /* justify-content - controleaza aranjarea elementelor pe orizontala (start, end, center) */
+    /* justify-content: space-between; space-between - tot spatiul liber ramas in container este egal distribuit intre elemente, elementele sunt lipite de marginile containerului */
+
+    /* justify-content: space-around;   - fiecare element are in stanga si dreapta acestuia un spatiu egal */
+    
+    justify-content: space-evenly;
+
+    /* flex-wrap: wrap - flexboxul va lua elementele in plus si le va pune intr-un rand nou    */
+    flex-wrap: wrap;
+
+
+    gap: 25px;
+
+    /* flex-direction: column-reverse; */
+}
+
+.card {
     position: relative;
 
+    width: 300px;
+    height: 400px;
+    background-color: rgb(192, 206, 255);
+    border-radius: 12px;
+
+    font-family: 'Roboto', sans-serif;
+
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+
+    /* margin-bottom: 20px; */
+
+    /* flex-basis: 300px;
+    flex-shrink: 1;
+    flex-grow: 1; */
+
+    /* flex: 1 1 300px; */
     z-index: 3;
+
+
+    
 }
+
+
+.image_container {
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.img_card {
+    width: min(80%, 250px);
+    /* max() */
+}
+
+footer {
+    background-color: black;
+    height: 500px;
+    width: 100vw;
+    margin-top: 100px;
+
+    padding: 50px;
+    box-sizing: border-box;
+
+    display: flex;
+
+    /* justify-content - orizontala */
+    justify-content: center;
+
+    /* align-items - verticala (start, center, end) */
+    align-items: stretch; /* face ca elementele sa ocupe tot spatiul posibil pe verticala in container */
+}
+
+.links_footer {
+
+    padding: 30px;
+    width: 300px;
+    background-color: white;
+}
+
+
+/* flex-basis - seteaza marimea initiala a unui element intr-un container flexbox
+   flex-grow - specifica de cate ori elementul poate creste intr-un container flexbox relativ fata de marimea de baza
+   flex-shrink - specifica de cate ori elementul se poate miscora intr-un container flexbox relativ fata de marimea de baza
+ 
+   aceste 3 proprietati sunt unificate de proprietatea flex
+*/
