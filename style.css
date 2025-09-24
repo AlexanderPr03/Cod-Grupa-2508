@@ -31,13 +31,20 @@ nav {
 
     display: flex;
     gap: 25px;
+
+    li {
+        background-color: black; 
+
+        .menu_link {
+            color: white;
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none;
+        }
+    }
+
 }
-.menu_link {
-    color: white;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-}
+
 
 .phantom_div {
     height: 80px;
@@ -185,6 +192,16 @@ footer {
     background-color: white;
 }
 
+form {
+    margin: 30px;
+
+}
+
+/* Selectorul atribut - selecteaza toate elementele de un tip care au atributul respectiv */
+input[placeholder='Email'] {
+    background-color: black;
+}
+
 
 /* flex-basis - seteaza marimea initiala a unui element intr-un container flexbox
    flex-grow - specifica de cate ori elementul poate creste intr-un container flexbox relativ fata de marimea de baza
@@ -192,3 +209,49 @@ footer {
  
    aceste 3 proprietati sunt unificate de proprietatea flex
 */
+
+
+
+
+
+/* media query */
+
+/* Bloc de CSS care va fi citit si aplicat doar daca conditia/conditiile lipite media query-ului sunt indeplinite */
+
+/* Media query pentru telefoanele mobile */
+@media (max-width: 480px) {
+
+    header {
+        background: red;
+    }
+
+    .pret_produs {
+        font-size: 5vw;
+    }
+
+}
+
+/* Media query pentru tablete */
+@media (min-width:481px) {
+    /* .container {
+        justify-content: left;
+    } */
+}
+
+
+/* Media query pentru tabletele mari, laptopuri */
+@media (min-width: 769px) {
+    /* header {
+        text-decoration: underline;
+    } */
+}
+
+/* media query pentru orientare:
+portrait: inaltime > latime
+landscape: latime > inaltime
+*/
+@media (orientation:landscape) {
+    /* body {
+        background-color: black
+    }; */
+}
