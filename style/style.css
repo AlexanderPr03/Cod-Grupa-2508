@@ -17,6 +17,8 @@ header {
     z-index: 5;
 }
 
+
+
 nav {
     height: 100%;
 
@@ -45,16 +47,14 @@ li {
         text-decoration: none;
     }
 }
+
+.menu_link:hover {
+    text-decoration: underline;
+}
+
 .phantom_div {
     height: 80px;
 }
-
-main {
-    /* padding-left: 100px;
-    padding-right: 100px; */
-}
-
-
 
 
 /* Elementele cu pozitia absoluta sunt izolate in cel mai apropiat element parinte care are pozitia setata */
@@ -63,7 +63,26 @@ main {
     position: absolute;
     right: 20px;
     bottom: 20px;
+
+    width:140px;
+    height: 40px;
+    background-color: rgb(0, 4, 59);
+    color: white;
+    border: none;
+    border-radius: 8px;
+
+    /* cursor:pointer - face ca mouse-ul sa-si schimbe forma ca sa indice ca pe element se poate de apasat */
+    cursor: pointer;
 }
+
+
+/* :active - aplica proprietatile cat timp un buton este apasat */
+.buy_button:active {
+    background-color: rgb(0, 12, 176);
+    color: white;
+ 
+}
+
 .pret_produs {
     margin: 0;
 
@@ -71,14 +90,6 @@ main {
     left: 20px;
     bottom: 20px;
 }
-/* 
-#card_principal {
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-
-    background-color: red;
-} */
 
 
 
@@ -126,31 +137,21 @@ main {
     /* flex-direction: column-reverse; */
 }
 
-.card {
-    position: relative;
-
-    width: 300px;
-    height: 400px;
-    background-color: rgb(192, 206, 255);
-    border-radius: 12px;
-
-    font-family: 'Roboto', sans-serif;
-
-    padding: 5px 10px 5px 10px;
-    box-sizing: border-box;
-
-    /* margin-bottom: 20px; */
-
-    /* flex-basis: 300px;
-    flex-shrink: 1;
-    flex-grow: 1; */
-
-    /* flex: 1 1 300px; */
-    z-index: 3;
 
 
-    
-}
+
+
+/* Pseudoclase - clase de stiluri care sunt aplicate unui element doar in anumite cazuri*/
+
+/* :hover - activeaza proprietati cand dam cu mouse-ul peste elementul cu clasa specificata*/
+
+/* .card:hover {
+    background-color: rgb(164, 184, 255);
+    width: 310px;
+    height: 420px;
+} */
+
+
 
 
 .image_container {
@@ -166,6 +167,9 @@ main {
     /* max() */
 }
 
+/* .img_card:hover {
+    width: 90%;
+} */
 footer {
     background-color: black;
     height: 500px;
