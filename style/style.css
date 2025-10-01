@@ -32,20 +32,19 @@ nav {
     display: flex;
     gap: 25px;
 
-    li {
-        background-color: black; 
-
-        .menu_link {
-            color: white;
-            font-size: 20px;
-            font-family: 'Roboto', sans-serif;
-            text-decoration: none;
-        }
-    }
 
 }
 
 
+li {
+
+    .menu_link {
+        color: white;
+        font-size: 20px;
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+    }
+}
 .phantom_div {
     height: 80px;
 }
@@ -198,7 +197,7 @@ form {
 }
 
 /* Selectorul atribut - selecteaza toate elementele de un tip care au atributul respectiv */
-input[placeholder='Email'] {
+input[type='password'] {
     background-color: black;
 }
 
@@ -211,7 +210,7 @@ input[placeholder='Email'] {
 */
 
 
-
+/* CSS - Cascading Style Sheets */
 
 
 /* media query */
@@ -246,10 +245,6 @@ input[placeholder='Email'] {
     } */
 }
 
-/* media query pentru orientare:
-portrait: inaltime > latime
-landscape: latime > inaltime
-*/
 @media (orientation:landscape) {
     /* body {
         background-color: black
