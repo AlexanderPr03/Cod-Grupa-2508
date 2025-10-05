@@ -206,6 +206,26 @@ input[type='password'] {
 }
 
 
+.example_list {
+    list-style: none;
+}
+
+.example_list_item {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+
+/* Tot blocul de CSS de mai jos este aplicat elementului virutal before */
+.example_list_item::before {
+    content: '✅';
+}
+
+.example_list_item::after {
+    
+}
+
+
 /* flex-basis - seteaza marimea initiala a unui element intr-un container flexbox
    flex-grow - specifica de cate ori elementul poate creste intr-un container flexbox relativ fata de marimea de baza
    flex-shrink - specifica de cate ori elementul se poate miscora intr-un container flexbox relativ fata de marimea de baza
