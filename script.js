@@ -1,90 +1,3 @@
-// let prenume = 'Alexandru'
-
-// let activitate = 'Mentor Frontend Development'
-
-// console.log(prenume)
-// console.log(activitate)
-
-// let persoana = prenume + ' - ' + activitate;
-// console.log(persoana)
-
-// let a = 5
-// let b = 2
-// console.log(a + b)
-
-// DOM - Document Object Model
-
-
-// One line comments 
-
-/*
-
-Multi-line comments
-
-*/
-
-
-// TIPURILE DE DATE ELEMENTARE IN JAVASCRIPT
-
-
-// 1) Sirurile de caractere - String
-
-
-let prenume = "Alexandru"
-let nume  = 'Prohnitchi'
-
-// console.log(prenume.toUpperCase()) Fiecare tip de date are anumite functii care pot fi apelate pentru a manipula valorile de acest tip de date intr-un anumit mod (de ex., luam un string si il facem sa fie scris tot cu litere majuscule)
-
-
-// 2) Numerele - Number - si numerele intregi si nr. reale sunt definite de tipul de date Number
-
-// let nr1 = '7'
-// let nr2 = 7
-
-let a = 5
-let b = 7
-
-console.log(b + a)
-console.log(a - b)
-console.log(a * b)
-console.log(a / b)
-
-
-// 3) Boolean - intrerupator, adevarat sau false (true or false)
-
-let passwordMatches = true
-
-
-// True - 1
-// False - 0
-
-// 4) Null - tip de date care reprezinta lipsa unei valori in variabila
-
-let emptyVariable = null;
-
-
-// 5) Undefined - tip de date care reprezinta lipsa variabilei (cel mai des intalnit ca mesaj de eroare)
-
-// undefined
-
-// Cuvantul typeof - cuvant rezervat care ne permite sa vedem tipul de date al unei variabile
-
-console.log(typeof prenume)
-
-
-prenume = 'Ion'
-console.log(prenume)
-
-
-// const - defineste o constanta - o variabila a carei valoare, odata definita, nu mai poate fi modificata.
-// Practica este ca numele consantelor sa fie scris cu majuscule
-const API_KEY = '1231312n22aw9anwa9dnqw9dqwnd912n19d129d1';
-
-// API_KEY = 'dada'
-
-
-console.log('test')
-
 
 // OPERATORII IN JAVASCRIPT
 
@@ -196,4 +109,108 @@ console.log('Utilizatorul are toate datele corecte (sau email, telefon, username
 // 3) NOT - negatia
 // !
 
-console.log()
+console.clear();
+
+
+// 1) Stringuri - au prioritate la conversia de tip. Orice alt tip de date intr-o operatie cu un string va fi convertit de asemenea in string
+
+// 2) Daca operatia nu poate fi facuta cu stringuri (nu este definita, se trece la conversia in numere):
+//  Numere, Booleane
+// La conversia de tip
+// True   - 1
+// False  - 0
+
+// 3) Daca nici operatia cu termenii convertiti in numere nu e posibila (sau termenii nu pot fi convertiti in numere),
+// JS va intoarce inapoi rezultatul NaN - Not a Number
+
+
+
+console.log(5 + '2')
+console.log(5 + 'a')
+console.log(5 - 'a');  // NaN - Not a Number
+
+console.log(true + '2');
+console.log(true - '2');
+console.log(true - 'a');
+console.log(true * 'a');
+console.log(true / '2');
+console.log(true ** 'a');
+
+
+// + - adunarea pentru siruri de caractere = concatenarea - lipirea a doua siruri de caractere
+
+// Null - 0
+// Undefined - NaN
+
+console.log(true + null) // 1
+console.log(true + undefined) // NaN
+
+
+console.clear();
+// CONDITIONALII
+
+// 1) Conditionalul if (daca)
+
+
+parolaDeLaUser = 'qwert'
+parolaDePeServer = 'qwerty'
+
+// if - daca
+// else - in caz contrar
+
+if ((username === usernameServer || telefonUser === telefonServer || emailUser === emailServer) 
+            && (parolaDeLaUser === parolaDePeServer)) {
+    console.log('Utilizatorul este autentificat!');
+    // trimiteti requestul pe server
+    // asteptati raspunsul
+    // procesati raspunsul
+    // etc
+} else {
+    console.log('Parola sau loginul sunt incorecte!')
+}
+
+
+// If-else complet
+
+// Edge-cases - Cazurile exceptie care de obicei nu sunt acoperite de codul pe care l-ati scris.
+let temperatura = 'Temperature can not be provided.';
+
+if (temperatura < 15) {
+    console.log('Temperatura e mai mica de 15 grade. Afara este frig');
+} else if (temperatura >= 15 && temperatura <= 25) {
+    console.log('Temperatura e intre 15 si 25 de grade. Temperatura perfecta.');
+} else if (temperatura > 25) {
+    console.log('Temperatura e mai mare de 25 de grade. Afara este cald');
+} else {
+    console.log('A aparut o eroare. Temperatura nu a putut fi afisata');
+}
+
+
+// 2) Conditionalul switch
+let zi_saptamana = 'Miercuri';
+switch (zi_saptamana) {
+    case 'Luni':
+        console.log('Prima zi a saptamanii. Mult succes la lucru!');
+        break;
+    case 'Marti':
+        console.log('A doua zi a saptamanii. Astazi avem lectie!');
+        break;
+    case 'Miercuri':
+        console.log('Mijlocul saptamanii.')
+        break;
+//...
+    case 'Sambata':
+    case 'Duminica':
+        console.log('Zi de odihna');
+        break;
+    default:
+        console.log('Variabila nu e o zi a saptamanii');
+
+}
+// break - este un cuvant rezervat care ii spune JS-ului sa iasa din structura de cod din care se afla
+console.log(1)
+console.log(2)
+// 
+console.log(100)
+
+// CICLURILE ITERATIVE
