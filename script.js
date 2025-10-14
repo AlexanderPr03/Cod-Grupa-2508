@@ -214,3 +214,51 @@ console.log(2)
 console.log(100)
 
 // CICLURILE ITERATIVE
+
+// Cicluri iterative unde nr. de iteratii e definit
+
+
+// 1) Ciclul for (pentru)
+// 1.1) Valoarea initiala
+// 1.2) Conditia
+// 1.3) Pasul iterativ (iteratia)
+for (let i = 1; i<=100; i+=4) {
+    console.log(i);
+}
+
+for (let i = 100; i>0; i--) {
+    console.log(i);
+}
+
+console.clear();
+
+let prenume = 'Alexandru';
+console.log(prenume.length);
+
+for (let i = 0; i<prenume.length; i++) {
+    console.log(prenume[i]);
+}
+
+
+
+// Operatorii aritmetici simplificati
+// i = i + 2;
+// i += 2
+// i += 1;  /* <==> */ 
+
+// i++; // Adaugam o unitate din numarul i
+// i--; // Scoatem o unitate din numarul i
+
+
+
+// Cicluri iterative unde nr. de iteratii este necunoscut din prealabil
+// Ciclul iterativ While - Cat timp
+
+// alert('Alerta JavaScript!') - afiseaza o alerta
+let parolaPrompt = prompt('Introdu o parola');    // afiseaza o alerta + un input box
+
+
+// Ciclul while de mai jos va repeta promptul pentru utilizator (si atribuirea la variabila parolaPrompt) pana cand conditia va fi falsa (in alte cuvinte, pana parolaPrompt va fi egala cu 'qwerty')
+while (parolaPrompt != 'qwerty') {
+    parolaPrompt = prompt('Parola gresita. Introdu o parola');  
+}
