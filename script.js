@@ -255,10 +255,29 @@ for (let i = 0; i<prenume.length; i++) {
 // Ciclul iterativ While - Cat timp
 
 // alert('Alerta JavaScript!') - afiseaza o alerta
-let parolaPrompt = prompt('Introdu o parola');    // afiseaza o alerta + un input box
+// let parolaPrompt = prompt('Introdu o parola');    // afiseaza o alerta + un input box
 
 
 // Ciclul while de mai jos va repeta promptul pentru utilizator (si atribuirea la variabila parolaPrompt) pana cand conditia va fi falsa (in alte cuvinte, pana parolaPrompt va fi egala cu 'qwerty')
-while (parolaPrompt != 'qwerty') {
-    parolaPrompt = prompt('Parola gresita. Introdu o parola');  
-}
+// while (parolaPrompt != 'qwerty') {
+//     parolaPrompt = prompt('Parola gresita. Introdu o parola');  
+// }
+
+// Ciclul do-while
+
+// let f = 1000000
+
+// do {
+//     console.log(f);
+// } while (i<=10)
+let parolaPrompt;
+do {
+    parolaPrompt = prompt('Introdu o parola');
+} while (parolaPrompt != 'qwerty')
+
+
+
+
+
+
+    
