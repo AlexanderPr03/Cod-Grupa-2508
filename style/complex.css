@@ -157,3 +157,28 @@
         transform: translate(0);
     }
 }
+
+
+
+
+/* COD NOU DOM */
+/* change_image_button.style.borderRadius = '12px';
+change_image_button.style.padding = " 10px 20px 10px 20px"
+change_image_button.style.border = 'none';
+change_image_button.style.color = 'white'
+change_image_button.style.backgroundColor = 'black'
+change_image_button.style.cursor = 'pointer' */
+
+.change_image_button {
+    border-radius: 12px;
+    padding: 10px 20px 10px 20px;
+    border: none;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.dark_mode {
+    background-color: black;
+    color: white;
+}
