@@ -182,3 +182,15 @@ change_image_button.style.cursor = 'pointer' */
     background-color: black;
     color: white;
 }
+
+.example_insert {
+    width: 400px;
+    min-height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.img_card_style {
+    width: 200px;
+}

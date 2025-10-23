@@ -43,15 +43,15 @@ title_shop.textContent = 'Bine ati revenit la magazinul nostru online!';
 
 // Modifcarea HTML
 let example_paragraph = document.querySelector('#example_paragraph');
-example_paragraph.innerHTML = 'Lorem ipsum dolor <b>sit amet</b> <i>consectetur</i>, adipisicing elit. Illo fugiat numquam sed pariatur cum dolores officiis perferendis, magni, repellat quaerat itaque, eaque deleniti molestiae magnam iste! Laboriosam illo earum quisquam.'
+// example_paragraph.innerHTML = 'Lorem ipsum dolor <b>sit amet</b> <i>consectetur</i>, adipisicing elit. Illo fugiat numquam sed pariatur cum dolores officiis perferendis, magni, repellat quaerat itaque, eaque deleniti molestiae magnam iste! Laboriosam illo earum quisquam.'
 
 
 // Modificarea atributelor
 
-let img_casti = document.querySelector('#img_casti');
+// let img_casti = document.querySelector('#img_casti');
 
 // Vizualizarea atributelor
-console.log(img_casti.getAttribute('src'))
+// console.log(img_casti.getAttribute('src'))
 
 // Modifcarea atributelor
 
@@ -94,4 +94,122 @@ function darkMode() {
     // toggle - scoate clasa daca e prezenta
     //        - adauga clasa daca e absenta
 }
+
+let produse = [
+    {
+        name: 'Apple iPhone 13 128 GB',
+        image:'media/iphone.webp',
+        price: 9999
+    },
+    {
+        name: 'Cameră de supraveghere IMILAB IMILAB A1 3 MP White',
+        image:'media/camera.png',
+        price: 1999 
+    },
+    {
+        name: 'Laptop Lenovo IdeaPad Gaming 3 15ACH6-8URK Shadow Black',
+        image:'media/laptop.png',
+        price: 13990 
+    },
+    {
+        name: 'Consolă pentru jocuri Microsoft Xbox Series S White',
+        image:'media/consola.png',
+        price: 5999
+    },
+    {
+        name: 'Boxă portabilă Marshall Emberton Black',
+        image:'media/boxa.png',
+        price: 2999
+    },
+    {
+        name: 'Căști Apple AirPods PRO (2nd generation) MagSafe White',
+        image:'media/casti.png',
+        price: 4999
+    },
+]
+
+console.clear()
+// INSERAREA ELEMENTELOR IN HTML:
+
+// 1) cream si populam elementul in JS
+
+
+// 2) inseram elementul populat cu continut in HTML
+
+// cream o ancora pentru ca in jurul acesteia sa inseram elementul
+// let sectiune = document.querySelector('.example_insert')
+
+// insertAdjacentElement - 4 pozitii fata de ancora unde putem insera elementul din JS
+// sectiune.insertAdjacentElement('beforebegin', img_card);
+// sectiune.insertAdjacentElement('afterbegin', img_card);
+// sectiune.insertAdjacentElement('beforeend', img_card);
+// sectiune.insertAdjacentElement('afterend', img_card);
+
+/*
+<article class="card">
+    <h3>Apple iPhone 13 128 GB</h3>
+    <div class="image_container">
+        <img class="img_card" src="media/iphone.webp">
+    </div>
+    <h5 class="pret_produs">9999 MDL</h5>
+    <button class="buy_button">Adauga in cos</button>
+</article>
+
+*/
+
+// Crearea unui card:
+console.clear();
+
+function createProductCard(produs) {
+    // Functie: 
+    // Input: obiect produs cu proprietatile unui produs de pe pagina
+    // Output: Cardul HTML pregatit pentru produsul respectiv
+
+
+    // Crearea elementelor HTML in JS 
+    let article = document.createElement('article')
+    let h3 = document.createElement('h3')
+    let img_card = document.createElement('img');
+    let div_imagine = document.createElement('div');
+    let h5 = document.createElement('h5')
+    let button = document.createElement('button')
+
+    // Adaugarea claselor pentru elemente
+    article.classList.add('card')
+    img_card.classList.add('img_card_style');
+    div_imagine.classList.add("image_container");
+    h5.classList.add('pret_produs')
+    button.classList.add('buy_button')
+
+    // Adaugarea continutului textual pentru elemente
+    h3.textContent = produs.name
+    button.textContent = 'Adauga in cos'
+    h5.textContent = produs.price + " MDL"
+
+    // Modificarea atributelor pentru elemente
+    img_card.setAttribute('src', produs.image)
+    img_card.setAttribute('alt', 'iphone')
+
+    // Asamblarea finala a cardului (in ordinea respectiva)
+    div_imagine.insertAdjacentElement('afterbegin', img_card)
+    article.insertAdjacentElement('beforeend', h3)
+    article.insertAdjacentElement('beforeend', div_imagine)
+    article.insertAdjacentElement('beforeend', h5)
+    article.insertAdjacentElement('beforeend', button)
+
+
+    // Dupa ce avem cardul asamblat, il intoarcem inapoi din functie
+    return article
+
+    
+}
+
+let container = document.querySelector('.container');
+for (const produs of produse) {
+   let card = createProductCard(produs)
+
+   container.insertAdjacentElement('beforeend', card)
+}
+
+
 
