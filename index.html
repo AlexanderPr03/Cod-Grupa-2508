@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/complex.css">
 </head>
 <body>
-    
+    <div class="meniu"></div>
     <header>
         <nav>
             <ul class="menu_list" id="menu_list">
@@ -32,7 +32,8 @@
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
         </form> -->
-        <h1 id="title_shop">Produsele noastre:</h1>
+        <!-- <h1 id="title_shop">Produsele noastre:</h1> -->
+        <h1 id="mouse_info"></h1>
         <section class="container">
            
         </section>
@@ -54,17 +55,21 @@
     </div>
 
     <hr>
-    <!-- <section class="form_container">
+    <section class="form_container">
         <form class="form_contact">
-            <input class="contact_input" type="email" placeholder="Email" name="email" required minlength="3">
+            <input class="contact_input" id="contact_email" type="email" placeholder="Email" name="email" required minlength="3">
+            
             <input class="contact_input" type="text" placeholder="Nume, Prenume" name="nume" required minlength="3">
             <span class="checkbox_container">
                 <input class="contact_input_checkbox" id="contact_input_checkbox" type="checkbox" name="tos"> 
                 <label for="contact_input_checkbox">Am citit si accept termenii si conditiile de utilizare...</label>
             </span>
-           
+            <textarea class="message_box contact_input"></textarea>
+            <p id="text_email"></p>
+
+            <input type="submit">
         </form>
-    </section> -->
+    </section>
 
     <!-- <ul class="example_list">
         <li class="example_list_item">Apple iPhone 13 128 GB</li>

@@ -38,13 +38,13 @@ console.log(articole)
 console.log(document.querySelector('#menu_list')); // Primul element
 console.log(document.querySelectorAll('.card'));   // Toate elementele
 
-let title_shop = document.querySelector('#title_shop');
+// let title_shop = document.querySelector('#title_shop');
 
 // Modificarea continutului
 
 
 // Modificarea textului
-title_shop.textContent = 'Bine ati revenit la magazinul nostru online!';
+// title_shop.textContent = 'Bine ati revenit la magazinul nostru online!';
 
 // Modifcarea HTML
 let example_paragraph = document.querySelector('#example_paragraph');
@@ -254,3 +254,63 @@ for (const produs of produse) {
 
 
 document.cookie = "yummy_cookie=chocolate";
+
+
+
+// Functie clasica
+function greetUser(nume) {
+    return 'Hello ' + nume;
+}
+
+// Arrow functions - functii sageata
+
+let greetUser2 = (nume) => 'Hello ' + nume
+
+console.log(greetUser('Alexandru'))
+console.log(greetUser2('Alexandru'))
+
+// EVENIMENTE
+let card = document.querySelector('.card');
+
+                                //Functie anonima
+card.addEventListener('click', function() {
+    
+})
+
+let contact_email = document.querySelector('.message_box');
+let text_email = document.querySelector('#text_email');
+
+
+
+// change - detecta schimbari la un checkbox
+
+
+
+// mouseenter, mousemove, mouseleave
+// mouseup, mousedown - apasam pe butonul de pe mouse si cand nu mai apasam pe butonul de pe mouse
+
+contact_email.addEventListener('input', () => text_email.textContent = contact_email.value.length + " caractere")
+
+let mouse_info = document.querySelector('#mouse_info');
+let menu = document.querySelector('.meniu')
+window.addEventListener('mousemove', (event) => {
+    mouse_info.textContent = "X: " + event.x + " Y: " + event.y
+
+    if (event.x < 20) {
+        menu.classList.add('meniu_activ')
+    }
+    if (event.x > 300) {
+        menu.classList.remove('meniu_activ')
+    }
+})
+
+
+let form_contact = document.querySelector('.form_contact');
+
+form_contact.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // ...transmitem datele
+
+    
+})  

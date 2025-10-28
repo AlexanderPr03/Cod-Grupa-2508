@@ -42,7 +42,7 @@
     transition: all 1000ms;
     /*  cubic-bezier(0,1.56,1,-0.84); */
 
-    animation: tricolor;
+    /* animation: tricolor; */
 }
 
 
@@ -82,7 +82,7 @@
     padding: 15px 25px 15px 25px;
     box-sizing: border-box;
     /* proprietatea animation - folosita pentru a atribui o animatie unui element */
-    animation: tricolor 10s;
+    /* animation: tricolor 10s; */
 }
 
 .contact_input {
@@ -95,6 +95,10 @@
     box-sizing: border-box;
 
     transition: all 1s;
+}
+
+.message_box {
+    height: 150px;
 }
 
 .contact_input:invalid {
@@ -193,4 +197,19 @@ change_image_button.style.cursor = 'pointer' */
 
 .img_card_style {
     width: 200px;
+}
+
+.meniu {
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: -300px;
+    transition: all 1s;
+}
+
+.meniu_activ {
+    left: 0px;
 }
