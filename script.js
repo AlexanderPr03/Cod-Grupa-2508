@@ -1,4 +1,9 @@
-console.log(document.body);
+let dark_mode_button = document.querySelector('#dark_mode_button');
+
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark_mode');
+    dark_mode_button.textContent = 'Light Mode';
+}
 
 // 1) Preluarea elementelor din HTML/CSS
 // 2) Editarea elementelor
@@ -82,12 +87,19 @@ change_image_button.classList.remove('change_image_button');
 
 // toggle
 
-let dark_mode_button = document.querySelector('#dark_mode_button');
+
 function darkMode() {
+
     if (document.body.classList.contains('dark_mode')) {
+
+        localStorage.setItem('darkMode', 'false')
+        // Setam light mode daca pagina e pe dark mode,  schimbam textul pentru a-i spune utilizatorului ca poate activa dark mode
         dark_mode_button.textContent = 'Dark Mode'
     } else {
+        localStorage.setItem('darkMode', 'true')
+        // Setam dark mode daca pagina e pe light mode, schimbam textul pentru a-i spune utilizatorului ca poate activa light mode
         dark_mode_button.textContent = 'Light Mode'
+        
     }
     document.body.classList.toggle('dark_mode');
     
@@ -213,3 +225,32 @@ for (const produs of produse) {
 
 
 
+// STORAGE
+
+
+// localStorage - 10MB
+
+// Setarea unei valori in localStorage
+// localStorage.setItem('limba', 'engleza')
+
+// Preluarea unei valori din localStorage
+// console.log(localStorage.getItem('limba'))
+
+// Stergerea unei valori
+// localStorage.removeItem('limba');
+
+// Stergeti intreg localStorage
+// localStorage.clear();
+
+
+
+// sessionStorage - 5MB
+
+
+// sessionStorage.setItem('temporar', 'Alexandru')
+// sessionStorage.getItem()
+// sessionStorage.removeItem()
+// sessionStorage.clear()
+
+
+document.cookie = "yummy_cookie=chocolate";
