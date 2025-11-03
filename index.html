@@ -9,83 +9,21 @@
     <link rel="stylesheet" href="style/complex.css">
 </head>
 <body>
-    <div class="meniu"></div>
-    <header>
-        <nav>
-            <ul class="menu_list" id="menu_list">
-                <li><a class="menu_link" href="pages/about.html">Despre Noi</a></li>
-                <li><a class="menu_link" href="pages/services.html">Servicii</a></li>
-                <li><a class="menu_link" href="pages/contact.html">Contact</a></li>
-                <li><a class="menu_link" href="pages/video_fullscreen.html">Video NASA</a></li>
-                <button onclick="darkMode()" id="dark_mode_button">Dark Mode</button>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="phantom_div"></div>
-        <!-- <div class="card" id="card_principal">
-
-        </div> -->
-
-        <!-- <form>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-        </form> -->
-        <!-- <h1 id="title_shop">Produsele noastre:</h1> -->
-        <h1 id="mouse_info"></h1>
-        <section class="container">
-           
-        </section>
-        <button id="change_image_button" onclick="changeImage()">Change Image</button> 
-        
-        <section class="example_insert">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem expedita itaque voluptatum, cum, ratione possimus veritatis, illo impedit sint laborum officia vero? Libero, autem doloremque at reprehenderit odit distinctio similique.</p>
-        </section>
-
-    </main>
-
-
-    
-        
-    <!-- <p id="example_paragraph"></p> -->
-
-    <div class="back_to_top">
-
-    </div>
-
+    <h1>Produse:</h1>
+    <ul class="productList">
+        <li><p>iPhone </p> <button onclick="addProduct('iPhone', 13999)">Add to cart</button></li>
+        <li><p>Laptop </p> <button onclick="addProduct('Laptop', 9999)">Add to cart</button></li>
+        <li><p>Casti </p> <button onclick="addProduct('Casti', 1999)">Add to cart</button></li>
+        <li><p>Boxa </p> <button onclick="addProduct('Boxa', 4999)">Add to cart</button></li>
+    </ul>
     <hr>
-    <section class="form_container">
-        <form class="form_contact">
-            <input class="contact_input" id="contact_email" type="email" placeholder="Email" name="email" required minlength="3">
-            
-            <input class="contact_input" type="text" placeholder="Nume, Prenume" name="nume" required minlength="3">
-            <span class="checkbox_container">
-                <input class="contact_input_checkbox" id="contact_input_checkbox" type="checkbox" name="tos"> 
-                <label for="contact_input_checkbox">Am citit si accept termenii si conditiile de utilizare...</label>
-            </span>
-            <textarea class="message_box contact_input"></textarea>
-            <p id="text_email"></p>
 
-            <input type="submit">
-        </form>
-    </section>
+    <h1>Shopping Cart:</h1>
+    <ul class="shoppingCart">
 
-    <!-- <ul class="example_list">
-        <li class="example_list_item">Apple iPhone 13 128 GB</li>
-        <li class="example_list_item">Cameră de supraveghere IMILAB IMILAB A1 3 MP White</li>
-        <li class="example_list_item">Laptop Lenovo IdeaPad Gaming 3 15ACH6-8URK Shadow Black</li>
-    </ul> -->
-
-    <!-- <div class="cerc">
-
-    </div> -->
-
-    <hr>
-    <footer>
-        <div class="links_footer"></div>
-    </footer>
+    </ul>
 </body>
+
 </html>
 
 <script src="script.js">
