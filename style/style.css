@@ -221,27 +221,61 @@ input[type='password'] {
     content: '✅';
 }
 
-.example_list_item::after {
-    
+/*               */
+/* SHOPPING CART */
+/*               */
+
+.shoppingCart {
+    width: 40px;
+  
+
+    position: absolute;
+    right: 100px;
+
+    cursor: pointer;
 }
 
+.shoppingCartImg {
+    width: 100%;
+    height: auto;
+}
 
-/* flex-basis - seteaza marimea initiala a unui element intr-un container flexbox
-   flex-grow - specifica de cate ori elementul poate creste intr-un container flexbox relativ fata de marimea de baza
-   flex-shrink - specifica de cate ori elementul se poate miscora intr-un container flexbox relativ fata de marimea de baza
- 
-   aceste 3 proprietati sunt unificate de proprietatea flex
-*/
+.cartContent {
 
+    width: 450px;
+    padding: 20px;
+    border-radius: 15px;
+    box-sizing: border-box;
 
-/* CSS - Cascading Style Sheets */
+    height: auto;
+    max-height: 600px;
 
+    background-color: grey;
 
-/* media query */
+    position: absolute;
+    left: 300px;
+    transition: all 1s ease-in-out;
+}
+.cartContentVisible {
+    left: -350px;
+}
 
-/* Bloc de CSS care va fi citit si aplicat doar daca conditia/conditiile lipite media query-ului sunt indeplinite */
+.shoppingCartElement {
+    width: 95%;
+    height: 100px;
+    border-radius: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 5px;
 
-/* Media query pentru telefoanele mobile */
+    background-color: white;
+    display: flex;
+}
+.cartElementImage {
+    height: 90%;
+    width: auto;
+}
+
 @media (max-width: 480px) {
 
     header {

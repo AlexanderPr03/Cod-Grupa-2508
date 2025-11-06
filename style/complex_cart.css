@@ -1,0 +1,14 @@
+@media (max-width:480px){
+  .productList {
+    gap:15px
+  }
+  .productList li{
+    width:calc(50% - 15px)
+  }
+  .shoppingCart li{
+    padding:12px
+  }
+  button{
+    padding:10px 14px
+  }
+}

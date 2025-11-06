@@ -1,92 +1,21 @@
 let dark_mode_button = document.querySelector('#dark_mode_button');
 
+// Inainte de orice alte operatii, verificam daca deja exista un shopping cart in localStorage
+let cartFromStorage = localStorage.getItem('cart');
+
+let cart = {
+}
+
+// Daca da, il luam din storage, il procesam (JSON.parse()), il lipim obiectului cart, apoi actualizam DOM-ul pentru a vedea schimbarile pe pagina
+if (cartFromStorage) {
+    cart = JSON.parse(cartFromStorage)
+    updateDOM()
+}
+
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark_mode');
     dark_mode_button.textContent = 'Light Mode';
 }
-
-// 1) Preluarea elementelor din HTML/CSS
-// 2) Editarea elementelor
-// 3) Crearea elementelor si inserarea lor in HTML/CSS
-// 4) Stergerea elementelor
-
-// DOM - Document Object Model - Interfata in JS care ne permite sa interactionam cu HTML-ul.
-// In JS codul de HTML e reprezentat sub forma de obiect (document)
-
-// 1) PRELUAREA ELEMENTELOR
-
-// 1.1) Preluarea dupa id
-// 1.2) Dupa clasa
-// 1.3) Dupa tag
-
-let meniu = document.getElementById('menu_list');
-console.log(meniu)
-
-
-let carduri = document.getElementsByClassName('card');
-console.log(carduri)
-
-
-let articole = document.getElementsByTagName('article')
-console.log(articole)
-
-
-
-// -----------------------------------------
-
-
-console.log(document.querySelector('#menu_list')); // Primul element
-console.log(document.querySelectorAll('.card'));   // Toate elementele
-
-// let title_shop = document.querySelector('#title_shop');
-
-// Modificarea continutului
-
-
-// Modificarea textului
-// title_shop.textContent = 'Bine ati revenit la magazinul nostru online!';
-
-// Modifcarea HTML
-let example_paragraph = document.querySelector('#example_paragraph');
-// example_paragraph.innerHTML = 'Lorem ipsum dolor <b>sit amet</b> <i>consectetur</i>, adipisicing elit. Illo fugiat numquam sed pariatur cum dolores officiis perferendis, magni, repellat quaerat itaque, eaque deleniti molestiae magnam iste! Laboriosam illo earum quisquam.'
-
-
-// Modificarea atributelor
-
-// let img_casti = document.querySelector('#img_casti');
-
-// Vizualizarea atributelor
-// console.log(img_casti.getAttribute('src'))
-
-// Modifcarea atributelor
-
-
-function changeImage() {
-    img_casti.setAttribute('src', 'media/iphone.webp');
-}
-
-// img_casti.toggleAttribute('atribut') - porneste sau opreste un atribut
-// img_casti.removeAttribute('atribut') - sterge un atribut
-
-// Modificarea stilurilor
-
-let change_image_button = document.querySelector('#change_image_button');
-// Modificarea directa a stilurilor (cu exceptia cazurilor in care avem max 1-2 stiluri de modificat)
-// change_image_button.style.borderRadius = '12px';
-// change_image_button.style.padding = " 10px 20px 10px 20px"
-// change_image_button.style.border = 'none';
-// change_image_button.style.color = 'white'
-// change_image_button.style.backgroundColor = 'black'
-// change_image_button.style.cursor = 'pointer'
-
-// Modificarea stilurilor prin intermediul claselor definite in CSS
-// Adaugarea unei clase
-change_image_button.classList.add('change_image_button');
-// Stergerea unei clase
-change_image_button.classList.remove('change_image_button');
-
-// toggle
-
 
 function darkMode() {
 
@@ -140,38 +69,6 @@ let produse = [
     },
 ]
 
-console.clear()
-// INSERAREA ELEMENTELOR IN HTML:
-
-// 1) cream si populam elementul in JS
-
-
-// 2) inseram elementul populat cu continut in HTML
-
-// cream o ancora pentru ca in jurul acesteia sa inseram elementul
-// let sectiune = document.querySelector('.example_insert')
-
-// insertAdjacentElement - 4 pozitii fata de ancora unde putem insera elementul din JS
-// sectiune.insertAdjacentElement('beforebegin', img_card);
-// sectiune.insertAdjacentElement('afterbegin', img_card);
-// sectiune.insertAdjacentElement('beforeend', img_card);
-// sectiune.insertAdjacentElement('afterend', img_card);
-
-/*
-<article class="card">
-    <h3>Apple iPhone 13 128 GB</h3>
-    <div class="image_container">
-        <img class="img_card" src="media/iphone.webp">
-    </div>
-    <h5 class="pret_produs">9999 MDL</h5>
-    <button class="buy_button">Adauga in cos</button>
-</article>
-
-*/
-
-// Crearea unui card:
-console.clear();
-
 function createProductCard(produs) {
     // Functie: 
     // Input: obiect produs cu proprietatile unui produs de pe pagina
@@ -202,6 +99,11 @@ function createProductCard(produs) {
     img_card.setAttribute('src', produs.image)
     img_card.setAttribute('alt', 'iphone')
 
+    // Adaugam un eventListener la button
+    button.addEventListener('click', () => {
+        addProduct(produs.name, produs.price, produs.image)
+    })
+
     // Asamblarea finala a cardului (in ordinea respectiva)
     div_imagine.insertAdjacentElement('afterbegin', img_card)
     article.insertAdjacentElement('beforeend', h3)
@@ -223,94 +125,128 @@ for (const produs of produse) {
    container.insertAdjacentElement('beforeend', card)
 }
 
+// Shopping Cart Functionality
 
 
-// STORAGE
+// shopping cart - adaugam produse, modificam cantitatea produselor, stergem produsele, resetarea shopping cartului
+// --------------------------------------------------------------------------------------
+// Cream obiectul cart si il initializam ca fiind fara continut
 
+// Cand dam cu mouseul peste shopping cart, apare un popup
 
-// localStorage - 10MB
+let cartImage = document.querySelector('.shoppingCart img');
+console.log(cartImage)
 
-// Setarea unei valori in localStorage
-// localStorage.setItem('limba', 'engleza')
+let cartContent = document.querySelector('.cartContent');
+cartImage.addEventListener('mouseover', () => {
+    cartContent.classList.add('cartContentVisible')
 
-// Preluarea unei valori din localStorage
-// console.log(localStorage.getItem('limba'))
+   
+    let nav = document.querySelector('nav');
 
-// Stergerea unei valori
-// localStorage.removeItem('limba');
+    cartContent.addEventListener('mouseleave', () => {
+        cartContent.classList.remove('cartContentVisible')
 
-// Stergeti intreg localStorage
-// localStorage.clear();
-
-
-
-// sessionStorage - 5MB
-
-
-// sessionStorage.setItem('temporar', 'Alexandru')
-// sessionStorage.getItem()
-// sessionStorage.removeItem()
-// sessionStorage.clear()
-
-
-document.cookie = "yummy_cookie=chocolate";
+    })
+    nav.addEventListener('mouseleave', () => {
+     cartContent.classList.remove('cartContentVisible')
+    })
+})
 
 
 
-// Functie clasica
-function greetUser(nume) {
-    return 'Hello ' + nume;
+// "{cantitate:2, pret: 9999, nume: 'iPhone'}"
+// --------------------------------------------------------------------------------------
+// Adaugam un produs in cos sau ii modificam cantitatea cu o unitate in plus
+function addProduct(product, price, image){
+    // Verificam daca produsul este deja in cos
+    if (cart[product] != null) {
+        cart[product].quantity++;
+    } else {
+        cart[product] = {}
+        cart[product].quantity = 1
+        cart[product].price = price;
+        cart[product].image = image
+    }
+    updateDOM()
+}
+// --------------------------------------------------------------------------------------
+// Modificam cantitatea produsului cu o unitate in minus sau il stergem din cos
+function deleteProduct(product) {
+    // Verificam daca cantitatea produsului e mai mare de 1
+    if (cart[product].quantity > 1) {
+        cart[product].quantity--;
+    } else {
+        delete cart[product];
+    }
+
+    updateDOM()
 }
 
-// Arrow functions - functii sageata
-
-let greetUser2 = (nume) => 'Hello ' + nume
-
-console.log(greetUser('Alexandru'))
-console.log(greetUser2('Alexandru'))
-
-// EVENIMENTE
-let card = document.querySelector('.card');
-
-                                //Functie anonima
-card.addEventListener('click', function() {
-    
-})
-
-let contact_email = document.querySelector('.message_box');
-let text_email = document.querySelector('#text_email');
 
 
+// --------------------------------------------------------------------------------------
+// Actualizam in DOM toate schimbarile pe care le-am facut in JS 
+function updateDOM() {
+    let cartList = document.querySelector('.cartContent');
+    // Primul pas e stergerea continutului curent
+    cartList.innerHTML = "";
 
-// change - detecta schimbari la un checkbox
+    // Al doilea pas: Iteram prin obiectele noastre si pentru fiecare obiect, cream un <li> pe care
+    // il vom pune in cartList (redesenam DOM-ul)
 
 
+    // Cream o variabila totalPrice pentru a calcula pretul total al produselor
+    let totalPrice = 0;
 
-// mouseenter, mousemove, mouseleave
-// mouseup, mousedown - apasam pe butonul de pe mouse si cand nu mai apasam pe butonul de pe mouse
+    // Iteram prin obiectul cart
+    for (let product in cart) {
 
-contact_email.addEventListener('input', () => text_email.textContent = contact_email.value.length + " caractere")
+        // Cream li
+        let listItem = document.createElement('li');
+        listItem.classList.add('shoppingCartElement')
 
-let mouse_info = document.querySelector('#mouse_info');
-let menu = document.querySelector('.meniu')
-window.addEventListener('mousemove', (event) => {
-    mouse_info.textContent = "X: " + event.x + " Y: " + event.y
+        // Cream imaginea pentru produs
+        let productImage = document.createElement('img')
+        productImage.setAttribute('src', cart[product].image)
+        productImage.classList.add('cartElementImage')
 
-    if (event.x < 20) {
-        menu.classList.add('meniu_activ')
+        // Populam li cu continut
+        listItem.textContent = product + ": " + cart[product].quantity + " unitati";
+
+        // Calculam pretul total al unitatilor pentru produsul respectiv
+        let totalProductPrice = cart[product].price * cart[product].quantity;
+
+        // Apoi il lipim la lista noastra
+        listItem.textContent += ". " + totalProductPrice + " lei. "
+
+        // Cream un buton pentru a scoate o unitate din cantitatea produsului
+        let removeButton = document.createElement('button');
+        // Adaugam continut textual butonului
+        removeButton.textContent = 'Sterge Unitate';
+
+        // Adaugam event listener care, cand detecteaza un click, apeleaza functia transmisa ca parametru care apeleaza functia deleteProduct (cu parametrul produs).
+        removeButton.addEventListener('click', () => {
+            // Cand butonul e apasat, stergem produsul
+            deleteProduct(product)
+        })
+
+        listItem.insertAdjacentElement('beforeend', productImage)
+        // Adaugam butonul in list item
+        listItem.insertAdjacentElement('beforeend', removeButton);
+
+        // Adaugam list itemul in elementul cart
+        cartList.insertAdjacentElement('beforeend', listItem)
+
+        // La pretul total al TUTUROR produselor adaugam pretul total pentru produsul curent
+        totalPrice += totalProductPrice
     }
-    if (event.x > 300) {
-        menu.classList.remove('meniu_activ')
-    }
-})
 
+    // Dupa ce avem pretul total pentru toate produsele, il inseram intr-un element din pagina
+    let price = document.querySelector(".price");
+    price.textContent = "Pret total: " + totalPrice + " lei.";
 
-let form_contact = document.querySelector('.form_contact');
-
-form_contact.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    // ...transmitem datele
-
-    
-})  
+    // Ne asiguram ca shopping cart-ul este salvat in pagina
+    // JSON.stringify() - preia un obiect/lista, o transforma intr-un string de format JSON.
+    localStorage.setItem('cart', JSON.stringify(cart))
+}
