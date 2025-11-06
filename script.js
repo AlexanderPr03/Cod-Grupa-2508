@@ -1,3 +1,11 @@
+import math from './math.mjs'
+
+
+console.log(math.ariecerc(3));
+
+
+// 1) Scope-ul global
+// 2) Scope-ul functional
 let dark_mode_button = document.querySelector('#dark_mode_button');
 
 // Inainte de orice alte operatii, verificam daca deja exista un shopping cart in localStorage
@@ -250,3 +258,67 @@ function updateDOM() {
     // JSON.stringify() - preia un obiect/lista, o transforma intr-un string de format JSON.
     localStorage.setItem('cart', JSON.stringify(cart))
 }
+
+// let test = '345'
+// function parinte() {
+//     // 2) Function Scope
+//     // let test = '123';
+//     // 2.1) Closures
+//     function copil() {
+//         // let test = '678'
+//         console.log(test);
+//     }
+
+//     copil()
+// }
+
+// 3) Block sope
+
+// if (2 == 2) {
+//     let exemplu = '123';
+// }
+// console.log(exemplu);
+// // parinte();
+
+
+// HTTP Requests
+
+// HyperText Transfer Protocol
+
+// 1) GET - actiune prin care noi cerem date de la server
+// 2) POST - actiune prin care noi trimitem date pe server
+// -----
+// 3) PUT - actiune prin care noi trimite date pe server SAU le actualizam daca ele deja exista
+//      3.1) PATCH
+
+// 4) DELETE
+
+
+
+
+// Clientul transmite un request (browserul), serverul transmite un raspuns
+
+// Un request HTTP are urmatoarele parti:
+// 1) Metoda requestului
+// 2) Unde transmitem requestul (endpoint) (server/incarca_produse)
+                                          // (server/incarca_categorii)
+// 3) Body - continutul requestului
+// ---------------
+// 4) Metadata - informatie despre request
+
+// 2 tipuri de date pe server:
+// - vrem sa incarcam PRODUSE
+// - vrem sa incarcam categorii pentru PRODUSE
+
+
+// 404 - Not found
+
+// 100-199 - coduri informationale
+// 200-299 - coduri succes (requestul a fost transmis, raspunsul a venit cu success)
+// 300-399 - redirect
+// 400-499 - Eroare de partea clientului (404)
+// 500-599 - Eroare de partea serverului (500 - Internal Server Error)
+
+
+
+// Single-threaded
