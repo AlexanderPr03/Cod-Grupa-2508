@@ -278,8 +278,13 @@ function updateDOM() {
 //     let exemplu = '123';
 // }
 // console.log(exemplu);
-// // parinte();
 
+
+try {
+    parinte();
+} catch (eroare) {
+    console.error(eroare);
+}
 
 // HTTP Requests
 
@@ -322,3 +327,165 @@ function updateDOM() {
 
 
 // Single-threaded
+
+
+// console.clear()
+
+console.log('Inainte de setTimeout')
+
+// setTimeout(function() {
+//     console.log('Timeout message')
+// }, 5000)
+
+console.log('Dupa setTimeout')
+
+// 1) Verifica ce trebuie de executat acum (in cod) (call stack)
+// 2) Verifica ce cod trebuie lasat pe mai tarziu (asincron) (catre WebAPIs)
+// 3) Verifica ce cod din cel lasat pe mai tarziu trebuie acum de executat (Callback queue)
+// ----------------------------------------------------------------------------
+
+// Implementari pentru codul asincron:
+// 1) Callbackuri
+// 2) Promisiunile
+// 3) Async/Await
+
+
+// ---------------------------------------------------------------
+
+// 1) callback - call me back - suna-ma inapoi
+
+function loadPage() {
+
+}
+//     cafeneaua                  nr. de telefon
+window.addEventListener('scroll', loadPage)
+
+
+
+// Functie care insereaza o imagine in pagina si ii aplica niste transformari
+function rotate(img) {
+    img.style.transform = 'rotate(45deg)'
+    console.log('Inside function')
+}
+
+function translate(img) {
+    img.style.transform = 'translate(100px,100px)'
+    console.log('Inside function')
+}
+
+function scale(img) {
+    img.style.transform = 'scale(1.5)'
+    console.log('Inside function')
+}
+
+
+function insertImage(imgSrc, transformare) {
+    let img = document.createElement('img')
+    img.setAttribute('src', imgSrc);
+    img.style.width = '200px'
+    
+    document.body.insertAdjacentElement('beforeend', img);
+}
+
+// console.clear()
+
+console.log('Before')
+insertImage('/media/iphone.webp',  scale)
+
+
+console.log('After')
+
+addEventListener('click', () => {
+
+})
+// console.clear()
+// PROMISIUNI
+
+// Pending
+
+// Fulfilled
+// Rejected
+
+// request
+// Functia fetch va intoarce inapoi o promisiune
+// .then(functie) - specificam ce facem daca promisiune a fost indeplinita
+// .catch(functie) - specificam ce facem daca promisiune NU a fost indeplinita
+// .finally(functie) - specificam ce facem la final, indiferent daca promisiunea a fost sau nu indeplinita
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+//             .then(result => result.json())
+//             .then(dateJson => consol.log(dateJson))
+//             .catch(eroare => console.error('A aparut o eroare: ' + eroare))
+//             .finally(/* fie o actiune care nu e legata atat de mult de precedentele
+//                         sau o actiune de cleanup*/ )
+
+// console.log('After promise')
+
+
+// setTimeout(()=>{
+//     console.log('After timeout')
+// },5000)
+
+
+// getUserDetails()
+//     .then(user => getUserCart(user.id))
+//     .then(cart => getProductPrices(cart))
+//     .then(price => checkout(price))
+//     .then(result => console.log('Am calculat pretul final al produselor'))
+//     .catch(error => 'A aparut o eroare, ' + error)
+
+    
+// Cream o promisiune simpla
+function getLater() {
+    return new Promise((resolve) => {
+        setTimeout(() => reolve('promisiunea a fost indeplinita'), 1000)
+    });
+}
+
+getLater()
+    .then(valoare => console.log(valoare))
+    .catch(eroare => console.error(eroare))
+    .finally(() => console.log('Am terminat promisiunea'))
+
+
+
+console.log('test')
+
+setTimeout(() => {
+    console.log('Hello')
+}, 4000)
+
+
+// try-catch-finally
+
+try {
+    
+} catch(eroare) {
+    console.error(eroare)
+} finally {
+
+
+}
+
+
+let okey = (ms, mesaj) => new Promise(resolve => setTimeout(() => {
+    resolve(mesaj)
+}, ms))
+
+let p1 = okey(20000, 'Promisunea 1')
+let p2 = okey(5000, 'Promisiunea 2')
+let p3 = okey(8000, 'Promisiunea 3')
+
+// AND pentru promisiuni
+Promise.all([p1, p2])
+        .then(([a,b]) => console.log('Ambele promisiuni au fost indeplinite', a,b))
+
+/***/Promise.allSettled([]) // pe langa functionalitatea la Promise.all(), veti primi un raport cu fiecare rezultat pentru fiecare promisiune
+
+
+// OR pentru promisiuni
+// Va folosi primul rezultat succes care vine inapoi, ignora toate esecurile (cu exceptia cazului in care toate dau esec)
+Promise.any([p1, p2, p3])
+    .then(resultat => console.log('Primul succes:', resultat))
+
+/***/Promise.race([]) // Va folosi primul rezultat care vine inapoi, indiferent daca e success sau esec
