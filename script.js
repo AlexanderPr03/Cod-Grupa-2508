@@ -436,56 +436,140 @@ addEventListener('click', () => {
 
     
 // Cream o promisiune simpla
-function getLater() {
-    return new Promise((resolve) => {
-        setTimeout(() => reolve('promisiunea a fost indeplinita'), 1000)
-    });
-}
+// function getLater() {
+//     return new Promise((resolve) => {
+//         setTimeout(() => reolve('promisiunea a fost indeplinita'), 1000)
+//     });
+// }
 
-getLater()
-    .then(valoare => console.log(valoare))
-    .catch(eroare => console.error(eroare))
-    .finally(() => console.log('Am terminat promisiunea'))
-
-
-
-console.log('test')
-
-setTimeout(() => {
-    console.log('Hello')
-}, 4000)
+// getLater()
+//     .then(valoare => console.log(valoare))
+//     .catch(eroare => console.error(eroare))
+//     .finally(() => console.log('Am terminat promisiunea'))
 
 
+
+// console.log('test')
+
+// setTimeout(() => {
+//     console.log('Hello')
+// }, 4000)
+
+console.clear()
 // try-catch-finally
 
-try {
+// try {
     
-} catch(eroare) {
-    console.error(eroare)
-} finally {
+// } catch(eroare) {
+//     console.error(eroare)
+// } finally {
 
 
-}
 
 
-let okey = (ms, mesaj) => new Promise(resolve => setTimeout(() => {
-    resolve(mesaj)
-}, ms))
 
-let p1 = okey(20000, 'Promisunea 1')
-let p2 = okey(5000, 'Promisiunea 2')
-let p3 = okey(8000, 'Promisiunea 3')
+// let okey = (ms, mesaj) => new Promise(resolve => setTimeout(() => {
+//     resolve(mesaj)
+// }, ms))
+
+// let p1 = okey(20000, 'Promisunea 1')
+// let p2 = okey(5000, 'Promisiunea 2')
+// let p3 = okey(8000, 'Promisiunea 3')
 
 // AND pentru promisiuni
-Promise.all([p1, p2])
-        .then(([a,b]) => console.log('Ambele promisiuni au fost indeplinite', a,b))
+// Promise.all([p1, p2])
+//         .then(([a,b]) => console.log('Ambele promisiuni au fost indeplinite', a,b))
 
 /***/Promise.allSettled([]) // pe langa functionalitatea la Promise.all(), veti primi un raport cu fiecare rezultat pentru fiecare promisiune
 
 
 // OR pentru promisiuni
 // Va folosi primul rezultat succes care vine inapoi, ignora toate esecurile (cu exceptia cazului in care toate dau esec)
-Promise.any([p1, p2, p3])
-    .then(resultat => console.log('Primul succes:', resultat))
+// Promise.any([p1, p2, p3])
+//     .then(resultat => console.log('Primul succes:', resultat))
 
 /***/Promise.race([]) // Va folosi primul rezultat care vine inapoi, indiferent daca e success sau esec
+
+
+// ASYNC/AWAIT
+
+// Async - un cuvant cheie care specifica ca o functie intoarce o Promisiune
+// Await - opreste executia functiei (pune pauza la functie) pana cand Promisiune e indeplinita
+// (Nu oprim executia paginii, doar executia functiei)
+
+
+// Promisiuni vs async/await
+
+
+// 1. Promisiuni
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(raspunsul => raspunsul.json())
+    .then(utilizatori => console.log(utilizatori))
+    .catch(eroare => console.log(eroare))
+    .finally()
+
+// 2. Async/Await 
+async function loadUsers() {
+    try {
+        let raspuns = await fetch('https://jsonplaceholder.typicode.com/users')
+        let utilizatori = await raspuns.json()
+        console.log(utilizatori)
+    } catch(eroare) {
+        console.error(eroare)
+    } finally {
+
+    }
+    
+}
+
+loadUsers()
+
+
+async function loadData(url) {
+    let raspuns = await fetch(url);
+    let date = await raspuns.json()
+    console.log(date)
+}
+
+// loadData('https://jsonplaceholder.typicode.com/comments')
+//         .then(date => console.log(date))
+
+
+loadData('https://jsonplaceholder.typicode.com/comments')
+
+
+loadData('https://jsonplaceholder.typicode.com/albums')
+
+
+
+async function loadBoth() {
+    let p1 = fetch('/adresa1')
+    let p2 = fetch('/adresa2')
+
+    let [raspuns1, raspuns2] = await Promise.all([p1,p2])
+
+}
+
+// FETCH pentru POST (celelalte fetch de mai sus sunt, by default, requesturi GET)
+fetch('adresa unde dorim sa incarcam datele', 
+    // Obiect parametru
+    {
+    // 1. Metoda
+    method: "POST",
+    // 2. Headers (informatie despre request)
+    headers: {
+        'Content-Type': "application/json"
+    },
+    // 3. Corptul requestului (continutul pe care il transmitem)
+    body: JSON.stringify({
+        name:'Alexandru',
+        lectie:22,
+    })
+})
+
+// La fel lucreaza pentru PUT/PATCH
+
+
+// Pentru DELETE
+
+fetch('adresa unde dorim sa incarcam datele', {method: "DELETE"})
