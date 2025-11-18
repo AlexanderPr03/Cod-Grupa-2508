@@ -36,10 +36,10 @@ function darkMode() {
         localStorage.setItem('darkMode', 'true')
         // Setam dark mode daca pagina e pe light mode, schimbam textul pentru a-i spune utilizatorului ca poate activa light mode
         dark_mode_button.textContent = 'Light Mode'
-        
+
     }
     document.body.classList.toggle('dark_mode');
-    
+
     // toggle - scoate clasa daca e prezenta
     //        - adauga clasa daca e absenta
 }
@@ -47,32 +47,32 @@ function darkMode() {
 let produse = [
     {
         name: 'Apple iPhone 13 128 GB',
-        image:'media/iphone.webp',
+        image: 'media/iphone.webp',
         price: 9999
     },
     {
         name: 'Cameră de supraveghere IMILAB IMILAB A1 3 MP White',
-        image:'media/camera.png',
-        price: 1999 
+        image: 'media/camera.png',
+        price: 1999
     },
     {
         name: 'Laptop Lenovo IdeaPad Gaming 3 15ACH6-8URK Shadow Black',
-        image:'media/laptop.png',
-        price: 13990 
+        image: 'media/laptop.png',
+        price: 13990
     },
     {
         name: 'Consolă pentru jocuri Microsoft Xbox Series S White',
-        image:'media/consola.png',
+        image: 'media/consola.png',
         price: 5999
     },
     {
         name: 'Boxă portabilă Marshall Emberton Black',
-        image:'media/boxa.png',
+        image: 'media/boxa.png',
         price: 2999
     },
     {
         name: 'Căști Apple AirPods PRO (2nd generation) MagSafe White',
-        image:'media/casti.png',
+        image: 'media/casti.png',
         price: 4999
     },
 ]
@@ -123,14 +123,14 @@ function createProductCard(produs) {
     // Dupa ce avem cardul asamblat, il intoarcem inapoi din functie
     return article
 
-    
+
 }
 
 let container = document.querySelector('.container');
 for (const produs of produse) {
-   let card = createProductCard(produs)
+    let card = createProductCard(produs)
 
-   container.insertAdjacentElement('beforeend', card)
+    container.insertAdjacentElement('beforeend', card)
 }
 
 // Shopping Cart Functionality
@@ -149,7 +149,7 @@ let cartContent = document.querySelector('.cartContent');
 cartImage.addEventListener('mouseover', () => {
     cartContent.classList.add('cartContentVisible')
 
-   
+
     let nav = document.querySelector('nav');
 
     cartContent.addEventListener('mouseleave', () => {
@@ -157,7 +157,7 @@ cartImage.addEventListener('mouseover', () => {
 
     })
     nav.addEventListener('mouseleave', () => {
-     cartContent.classList.remove('cartContentVisible')
+        cartContent.classList.remove('cartContentVisible')
     })
 })
 
@@ -166,7 +166,7 @@ cartImage.addEventListener('mouseover', () => {
 // "{cantitate:2, pret: 9999, nume: 'iPhone'}"
 // --------------------------------------------------------------------------------------
 // Adaugam un produs in cos sau ii modificam cantitatea cu o unitate in plus
-function addProduct(product, price, image){
+function addProduct(product, price, image) {
     // Verificam daca produsul este deja in cos
     if (cart[product] != null) {
         cart[product].quantity++;
@@ -306,7 +306,7 @@ try {
 // Un request HTTP are urmatoarele parti:
 // 1) Metoda requestului
 // 2) Unde transmitem requestul (endpoint) (server/incarca_produse)
-                                          // (server/incarca_categorii)
+// (server/incarca_categorii)
 // 3) Body - continutul requestului
 // ---------------
 // 4) Metadata - informatie despre request
@@ -383,14 +383,14 @@ function insertImage(imgSrc, transformare) {
     let img = document.createElement('img')
     img.setAttribute('src', imgSrc);
     img.style.width = '200px'
-    
+
     document.body.insertAdjacentElement('beforeend', img);
 }
 
 // console.clear()
 
 console.log('Before')
-insertImage('/media/iphone.webp',  scale)
+insertImage('/media/iphone.webp', scale)
 
 
 console.log('After')
@@ -434,7 +434,7 @@ addEventListener('click', () => {
 //     .then(result => console.log('Am calculat pretul final al produselor'))
 //     .catch(error => 'A aparut o eroare, ' + error)
 
-    
+
 // Cream o promisiune simpla
 // function getLater() {
 //     return new Promise((resolve) => {
@@ -459,7 +459,7 @@ console.clear()
 // try-catch-finally
 
 // try {
-    
+
 // } catch(eroare) {
 //     console.error(eroare)
 // } finally {
@@ -468,9 +468,9 @@ console.clear()
 
 
 
-// let okey = (ms, mesaj) => new Promise(resolve => setTimeout(() => {
-//     resolve(mesaj)
-// }, ms))
+let okey = (ms, mesaj) => new Promise(resolve => setTimeout(() => {
+    resolve(mesaj)
+}, ms))
 
 // let p1 = okey(20000, 'Promisunea 1')
 // let p2 = okey(5000, 'Promisiunea 2')
@@ -514,12 +514,12 @@ async function loadUsers() {
         let raspuns = await fetch('https://jsonplaceholder.typicode.com/users')
         let utilizatori = await raspuns.json()
         console.log(utilizatori)
-    } catch(eroare) {
+    } catch (eroare) {
         console.error(eroare)
     } finally {
 
     }
-    
+
 }
 
 loadUsers()
@@ -528,11 +528,11 @@ loadUsers()
 async function loadData(url) {
     let raspuns = await fetch(url);
     let date = await raspuns.json()
-    console.log(date)
+    return date
 }
 
-// loadData('https://jsonplaceholder.typicode.com/comments')
-//         .then(date => console.log(date))
+loadData('https://jsonplaceholder.typicode.com/comments')
+    .then(date => console.log(date))
 
 
 loadData('https://jsonplaceholder.typicode.com/comments')
@@ -546,30 +546,30 @@ async function loadBoth() {
     let p1 = fetch('/adresa1')
     let p2 = fetch('/adresa2')
 
-    let [raspuns1, raspuns2] = await Promise.all([p1,p2])
+    let [raspuns1, raspuns2] = await Promise.all([p1, p2])
 
 }
 
 // FETCH pentru POST (celelalte fetch de mai sus sunt, by default, requesturi GET)
-fetch('adresa unde dorim sa incarcam datele', 
+fetch('adresa unde dorim sa incarcam datele',
     // Obiect parametru
     {
-    // 1. Metoda
-    method: "POST",
-    // 2. Headers (informatie despre request)
-    headers: {
-        'Content-Type': "application/json"
-    },
-    // 3. Corptul requestului (continutul pe care il transmitem)
-    body: JSON.stringify({
-        name:'Alexandru',
-        lectie:22,
+        // 1. Metoda
+        method: "POST",
+        // 2. Headers (informatie despre request)
+        headers: {
+            'Content-Type': "application/json"
+        },
+        // 3. Corptul requestului (continutul pe care il transmitem)
+        body: JSON.stringify({
+            name: 'Alexandru',
+            lectie: 22,
+        })
     })
-})
 
 // La fel lucreaza pentru PUT/PATCH
 
 
 // Pentru DELETE
 
-fetch('adresa unde dorim sa incarcam datele', {method: "DELETE"})
+fetch('adresa unde dorim sa incarcam datele', { method: "DELETE" })
